@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 module ShopTest
   class Application < Rails::Application
-    config.generatorsdo|g|
+    config.generators do|g|
     g.test_framework :rspec,
       fixtures: true,
       view_specs: false,
