@@ -2,19 +2,31 @@
 
 <h1>Listing Shops</h1>
 
+<%= link_to 'Créer', new_shop_path %></br>
+
 <table>
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>Nom</th>
+      <th>Adresse</th>
+      <th>Code Postal</th>
+      <th>Ville</th>
+      <th>Tel</th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @shops.each do |shop| %>
       <tr>
-        <td><%= link_to 'Show', shop %></td>
-        <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
-        <td><%= link_to 'Destroy', shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= shop.name %></td>
+        <td><%= shop.address %></td>
+        <td><%= shop.zip %></td>
+        <td><%= shop.city %></td>
+        <td><%= shop.phone %></td>
+        <td><%= link_to 'Voir', shop %></td>
+        <td><%= link_to 'Editer', edit_shop_path(shop) %></td>
+        <td><%= link_to 'Supprimer', shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +34,3 @@
 
 <br>
 
-<%= link_to 'New Shop', new_shop_path %>
