@@ -11,7 +11,48 @@
     </div>
   <% end %>
 
+  <div class="row">
+    <%= f.label :"Chaine de boutiques", class:"col-md-4" %>
+    <%= f.text_field :chain, class:"col-md-3" %>
+  </div>
+  <div class="row">
+    <%= f.label :"Nom de la boutique", class:"col-md-4" %>
+    <%= f.text_field :name, class:"col-md-3" %>
+  </div>
+  <div class="row">
+    <%= f.label :"Adresse", class:"col-md-4" %>
+    <%= f.text_field :address, class:"col-md-3" %>
+  </div>
+  <div class="row">
+    <%= f.label :"Code postal", class:"col-md-4" %>
+    <%= f.text_field :zip, class:"col-md-3" %>
+  </div>
+  <div class="row">
+    <%= f.label :Ville, class:"col-md-4" %>
+    <%= f.text_field :city, class:"col-md-3" %>
+  </div>
+  <div class="row">
+    <%= f.label :"Code pays", class:"col-md-4" %>
+    <%= f.text_field :country_code, class:"col-md-3" %>
+  </div>
+  <div class="row">
+    <%= f.label :"Telephone", class:"col-md-4" %>
+    <%= f.text_field :phone, class:"col-md-3" %>
+  </div>
+  <h2> Coordonnées GPS </h2></br>
+  <div class="row">
+    <%= f.label :Longitude, class:"col-md-4" %>
+    <%= f.text_field :longitude, class:"col-md-3" %>
+  </div>
+  <div class="row">
+    <%= f.label :"Latitude", class:"col-md-4" %>
+    <%= f.text_field :latitude, class:"col-md-3" %>
+  </div>
+
+  </br></br>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Enregistrer", class:"btn btn-primary btn-md" %>
+    <%= link_to "Annuler", shops_path, class:"btn btn-default btn-md" %>
   </div>
 <% end %>

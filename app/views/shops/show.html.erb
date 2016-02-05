@@ -1,42 +1,53 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Nom: <%= @shop.name %></h1>
+<h1 class="page-header">Détails boutique</h1>
 
-<div class="row">
-  <strong>Chaine</strong>
-  <p><%= @shop.chain %></p>
-</div>
-<div class="row">
-  <strong>Telephone</strong>
-  <p><%= @shop.phone %></p>
-</div>
-</br></br>
-<div class="row">
-  <strong>Adresse</strong>
-  <p><%= @shop.address %></p>
-</div>
-<div class="row">
-  <strong>Code postal</strong>
-  <p><%= @shop.zip %></p>
-</div>
-<div class="row">
-  <strong>Ville</strong>
-  <p><%= @shop.city %></p>
-</div>
-<div class="row">
-  <strong>Pays</strong>
-  <p><%= @shop.country_code %></p>
-</div>
+<div class="jumbotron">
+  <div class="row">
+    <label class="col-md-4">Chaine de boutiques</label>
+    <%= @shop.chain %>
+  </div>
+  <div class="row">
+    <label class="col-md-4">Nom de la boutique</label>
+    <%= @shop.name %>
+  </div>
+  <div class="row">
+    <label class="col-md-4">Téléphone</label>
+    <%= @shop.phone %>
+  </div>
+  </br></br>
+  <div class="row">
+    <label class="col-md-4">Adresse</label>
+    <%= @shop.address %>
+  </div>
+  <div class="row">
+    <label class="col-md-4">Code postal</label>
+    <%= @shop.zip %>
+  </div>
+  <div class="row">
+    <label class="col-md-4">Ville</label>
+    <%= @shop.city %>
+  </div>
+  <div class="row">
+    <label class="col-md-4">Code pays</label>
+    <%= @shop.country_code %>
+  </div>
 
-<h2> Coordonnées GPS </h2>
-<div class="row">
-  <strong>longitude</strong>
-  <p><%= @shop.longitude %></p>
-</div>
-<div class="row">
-  <strong>Latitude</strong>
-  <p><%= @shop.latitude %></p>
-</div>
+  <h2> Coordonnées GPS </h2>
+  <div class="row">
+    <label class="col-md-4">Longitude</label>
+    <%= @shop.longitude %>
+  </div>
+  <div class="row">
+    <label class="col-md-4">Latitude</label>
+    <%= @shop.latitude %>
+  </div>
 
-<%= link_to 'Editer', edit_shop_path(@shop) %> |
-<%= link_to 'Retour', shops_path %>
+  </br></br>
+
+  <div class="col-md-offset-4 col-md-10">
+    <%= link_to 'Modifier', edit_shop_path(@shop), class:"btn btn-primary btn-md" %>
+    <%= link_to 'Retour', shops_path, class:"btn btn-default btn-md" %>
+  </div>
+
+</div>

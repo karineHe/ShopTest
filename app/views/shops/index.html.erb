@@ -2,37 +2,41 @@
 
 <h1 class="page-header">Liste des magasins</h1>
 
-<%= link_to 'Créer', new_shop_path %></br>
 
 <div class="jumbotron">
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Adresse</th>
-      <th>Code Postal</th>
-      <th>Ville</th>
-      <th>Tel</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @shops.each do |shop| %>
+  <%= link_to 'Créer', new_shop_path, class:"btn btn-group-justified btn-primary" %></br></br></br>
+  <table class="table-hover">
+    <thead>
       <tr>
-        <td><%= shop.name %></td>
-        <td><%= shop.address %></td>
-        <td><%= shop.zip %></td>
-        <td><%= shop.city %></td>
-        <td><%= shop.phone %></td>
-        <td><%= link_to 'Voir', shop %></td>
-        <td><%= link_to 'Editer', edit_shop_path(shop) %></td>
-        <td><%= link_to 'Supprimer', shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th class="col-md-4">Nom</th>
+        <th class="col-md-5">Coordonnées</th>
+        <th colspan="3"</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @shops.each do |shop| %>
+        <tr height="120" class="active">
+          <td class"col-md-4">
+            <strong><%= shop.name %></strong>
+          </td>
+          <td class="col-md-5">
+            <%= "#{shop.address}" %></br>
+            <%= "#{shop.zip} #{shop.city}\n" %></br></br>
+            <strong>Tel:</strong> <%= shop.phone %>
+        </td>
+        <td>
+            <div class="btn-group" role="group">
+              <%= link_to 'Voir détails', shop, class:"btn btn-default btn-sm" %>
+              <%= link_to 'Modifier', edit_shop_path(shop), class:"btn btn-default btn-sm" %>
+              <%= link_to 'Supprimer', shop, class:"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+        </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
 </div>
 
