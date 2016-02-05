@@ -2,12 +2,12 @@ require 'csv'
 
 namespace :import do
   desc "import csv file"
-  task import_csv: :environment do
+  task :import_csv, [:file] => :environment do |task, args|
 
     fields_to_insert = %w{ chain name latitude longitude address city zip phone country_code }
     row_stripped={}
 
-    CSV.foreach("#{Rails.root}/data_csv/shops_shopmium.csv", headers: true) do |row|
+    CSV.foreach(args[:file], headers: true) do |row|
       row.each do |key, value|
         if fields_to_insert.include?(key.strip)
           if value.nil?
