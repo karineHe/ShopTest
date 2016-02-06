@@ -6,6 +6,7 @@ RSpec.describe Shop, :type => :model do
     it "is invalid without a name"
     it "is invalid without a longitude"
     it "is invalid without a latitude"
+    it "is invalid with duplicate longitude/latitude"
 
   describe "Type validation" do
     it "confirms longitude is a float"

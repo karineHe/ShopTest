@@ -4,7 +4,7 @@ namespace :import do
   desc "import csv file"
   task :import_csv, [:file] => :environment do |task, args|
 
-    fields_to_insert = %w{ chain name latitude longitude address city zip phone country_code }
+    fields_to_insert = %w{ chain name address longitude latitude city zip phone country_code }
     row_stripped={}
 
     CSV.foreach(args[:file], headers: true) do |row|
@@ -17,8 +17,12 @@ namespace :import do
           end
         end
       end
-      Shop.create!(row_stripped.to_hash)
-    end
-  end
 
+      shop = Shop.new(row_stripped.to_hash)
+      if !(shop.save)
+        puts "Error: #{shop.name} not saved : #{shop.errors.full_messages.join(' ')}"
+      end
+    end
+
+  end
 end
