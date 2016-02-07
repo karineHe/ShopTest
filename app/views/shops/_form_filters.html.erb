@@ -1,0 +1,35 @@
+<%= form_tag shops_path, :method => :get do %>
+  <div class="row">
+    <div class="col-md-6">
+
+      <h3> Ajouter un filtre </h3></br>
+
+      <em> Entrez les coordonnées d'un point </em>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Latitude</span>
+        <%= text_field_tag :lat, nil, class:"form-control" %>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Longitude</span>
+        <%= text_field_tag :lng, nil, class:"form-control" %>
+      </div></br>
+
+      <em> Choisir une option </em></br>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Afficher les shops dans un rayon de </span>
+        <%= text_field_tag :rayon, nil, class:"form-control" %>
+        <span class="input-group-addon" id="basic-addon1">kms</span>
+      </div>
+      <em>ou</em>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Afficher les </span>
+        <%= text_field_tag :nbr_shops, nil, class:"form-control" %>
+        <span class="input-group-addon" id="basic-addon1"> shops les plus proches </span>
+      </div></br>
+      <%= submit_tag :Filtrer, class:"btn btn-primary btn-md" %>
+      <div class="col-md-6">
+      </div>
+    </div>
+  </div></br>
+
+<% end %>

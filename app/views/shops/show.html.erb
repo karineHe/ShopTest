@@ -35,19 +35,25 @@
 
   <h2> Coordonnées GPS </h2>
   <div class="row">
-    <label class="col-md-4">Longitude</label>
-    <%= @shop.longitude %>
-  </div>
-  <div class="row">
     <label class="col-md-4">Latitude</label>
     <%= @shop.latitude %>
+  </div>
+  <div class="row">
+    <label class="col-md-4">Longitude</label>
+    <%= @shop.longitude %>
   </div>
 
   </br></br>
 
-  <div class="col-md-offset-4 col-md-10">
-    <%= link_to 'Modifier', edit_shop_path(@shop), class:"btn btn-primary btn-md" %>
-    <%= link_to 'Retour', shops_path, class:"btn btn-default btn-md" %>
+  <div class="col-md-offset-1 col-md-3">
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <div class="btn-group" role="group">
+        <%= link_to 'OK', shops_path, class:"btn btn-default btn-md active" %>
+      </div>
+      <div class="btn-group" role="group">
+        <%= link_to 'Modifier', edit_shop_path(@shop), class:"btn btn-primary btn-md active" %>
+      </div>
+    </div>
   </div>
 
 </div>

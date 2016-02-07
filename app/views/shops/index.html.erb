@@ -1,10 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="page-header">Liste des magasins</h1>
-
-
 <div class="jumbotron">
-  <%= link_to 'Créer', new_shop_path, class:"btn btn-group-justified btn-primary active" %></br></br></br>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render 'form_filters' %>
+    </div>
+  </div>
+</div>
+<h1 class="page-header">Liste des boutiques</h1>
+  <div class="col-md-3">
+    <%= link_to 'Nouvelle boutique', new_shop_path, class:"btn btn-group-justified btn-primary active" %>
+  </div>
+  </br></br></br>
+<div class="jumbotron">
   <table class="table-hover">
     <thead>
       <tr>
@@ -15,7 +23,7 @@
     </thead>
 
     <tbody>
-      <% @shops.each do |shop| %>
+      <% @shops.order(:name).each do |shop| %>
         <tr height="120" class="active">
           <td class"col-md-4">
             <strong><%= shop.name %></strong>
@@ -26,11 +34,11 @@
             <strong>Tel:</strong> <%= shop.phone %>
         </td>
         <td>
-            <div class="btn-group" role="group">
-              <%= link_to 'Voir détails', shop, class:"btn btn-default btn-sm" %>
-              <%= link_to 'Modifier', edit_shop_path(shop), class:"btn btn-default btn-sm" %>
-              <%= link_to 'Supprimer', shop, class:"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
-            </div>
+          <div class="btn-group" role="group">
+            <%= link_to 'Voir détails', shop, class:"btn btn-default btn-sm" %>
+            <%= link_to 'Modifier', edit_shop_path(shop), class:"btn btn-default btn-sm" %>
+            <%= link_to 'Supprimer', shop, class:"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
         </td>
         </tr>
       <% end %>

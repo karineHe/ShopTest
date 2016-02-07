@@ -4,7 +4,24 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
-    @shops = Shop.all
+    lat = params[:lat]
+    lng = params[:lng]
+    rayon = params[:rayon]
+    nbr_shops = params[:nbr_shops]
+
+    if lat.blank? || lng.blank? || (!(rayon.blank?) && !(nbr_shops.blank?))
+      @shops = Shop.all
+    else
+      if !(rayon.blank?) && (rayon.to_i >= 0)
+        @shops = Shop.within(rayon, origin: [lat, lng])
+      else
+        if !(nbr_shops.blank?) && (nbr_shops.to_i >= 0)
+          @shops = Shop.by_distance(origin: [lat, lng]).limit(nbr_shops)
+        else
+          @shops = Shop.all
+        end
+      end
+    end
   end
 
   # GET /shops/1
@@ -62,13 +79,13 @@ class ShopsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_shop
-      @shop = Shop.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_shop
+    @shop = Shop.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def shop_params
-      params.require(:shop).permit(:chain, :name, :address, :zip, :city, :phone, :country_code, :longitude, :latitude)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def shop_params
+    params.require(:shop).permit(:chain, :name, :address, :zip, :city, :phone, :country_code, :longitude, :latitude)
+  end
 end

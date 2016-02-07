@@ -4,55 +4,89 @@
       <h2><%= pluralize(@shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
 
       <ul>
-      <% @shop.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @shop.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="row">
-    <%= f.label :"Chaine de boutiques", class:"col-md-4" %>
-    <%= f.text_field :chain, class:"col-md-3" %>
-  </div>
+    <%= f.label :"chaine de boutiques", class:"col-md-4" %>
+    <div class="col-md-6">
+      <%= f.text_field :chain, class:"form-control" %>
+    </div>
+  </div></br>
+
   <div class="row">
     <%= f.label :"Nom de la boutique", class:"col-md-4" %>
-    <%= f.text_field :name, class:"col-md-3" %>
-  </div>
+    <div class="col-md-6">
+      <%= f.text_field :name, class:"form-control" %>
+    </div>
+  </div></br>
+
   <div class="row">
-    <%= f.label :"Adresse", class:"col-md-4" %>
-    <%= f.text_field :address, class:"col-md-3" %>
-  </div>
+    <%= f.label :Adresse, class:"col-md-4" %>
+    <div class="col-md-6">
+      <%= f.text_field :address, class:"form-control" %>
+    </div>
+  </div></br>
+
   <div class="row">
-    <%= f.label :"Code postal", class:"col-md-4" %>
-    <%= f.text_field :zip, class:"col-md-3" %>
-  </div>
+    <%= f.label :"Code Postal", class:"col-md-4" %>
+    <div class="col-md-6">
+      <%= f.text_field :zip, class:"form-control" %>
+    </div>
+  </div></br>
+
   <div class="row">
     <%= f.label :Ville, class:"col-md-4" %>
-    <%= f.text_field :city, class:"col-md-3" %>
-  </div>
+    <div class="col-md-6">
+      <%= f.text_field :city, class:"form-control" %>
+    </div>
+  </div></br>
+
   <div class="row">
-    <%= f.label :"Code pays", class:"col-md-4" %>
-    <%= f.text_field :country_code, class:"col-md-3" %>
-  </div>
+    <%= f.label :"Pays", class:"col-md-4" %>
+    <div class="col-md-6">
+      <%= f.text_field :country_code, class:"form-control" %>
+    </div>
+  </div></br>
+
   <div class="row">
     <%= f.label :"Telephone", class:"col-md-4" %>
-    <%= f.text_field :phone, class:"col-md-3" %>
-  </div>
-  <h2> Coordonnées GPS </h2></br>
+    <div class="col-md-6">
+      <%= f.text_field :phone, class:"form-control" %>
+    </div>
+  </div></br>
+
+  <h4> Coordonnées GPS</h4>
+  <div class="row">
+    <%= f.label :Latitude, class:"col-md-4" %>
+    <div class="col-md-6">
+      <%= f.text_field :latitude, class:"form-control" %>
+    </div>
+  </div></br>
+
   <div class="row">
     <%= f.label :Longitude, class:"col-md-4" %>
-    <%= f.text_field :longitude, class:"col-md-3" %>
-  </div>
-  <div class="row">
-    <%= f.label :"Latitude", class:"col-md-4" %>
-    <%= f.text_field :latitude, class:"col-md-3" %>
-  </div>
-
-  </br></br>
+    <div class="col-md-6">
+      <%= f.text_field :longitude, class:"form-control" %>
+    </div>
+  </div></br>
 
   <div class="actions">
-    <%= f.submit "Enregistrer", class:"btn btn-primary btn-md" %>
-    <%= link_to "Annuler", shops_path, class:"btn btn-default btn-md" %>
   </div>
+
+  <div class="col-md-offset-3 col-md-3">
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <div class="btn-group" role="group">
+        <%= f.submit "Enregistrer", class:"btn btn-default btn-md active" %>
+      </div>
+      <div class="btn-group" role="group">
+        <%= link_to "Annuler", shops_path, class:"btn btn-primary btn-md active" %>
+      </div>
+    </div>
+  </div>
+
 <% end %>
