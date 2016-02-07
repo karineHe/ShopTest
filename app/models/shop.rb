@@ -6,7 +6,7 @@ class Shop < ActiveRecord::Base
 
   validates_presence_of :name, :longitude, :latitude
   validate :unique_coordonates
-  validate :phone
+  validates :phone, length: { is: 10 }, allow_blank: true
 
   def unique_coordonates
     if Shop.where.not(id: self.id).where(longitude: self.longitude, latitude: self.latitude).count != 0
