@@ -25,4 +25,9 @@ namespace :import do
     end
 
   end
+
+  desc "How to use it?"
+  task :help do
+    puts "To run the task do\n rake import:import_csv[\"Your/filepath/filecsv.csv\"]\n with Your/filepath/filecsv.csv replaced by the path to your file"
+  end
 end
